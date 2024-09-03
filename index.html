@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <head>
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <link rel="stylesheet" href="/output.css">
+      <title>Frontend Mentor | Age calculator app</title>
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="./assets/images/favicon-32x32.png" />
+
+    </head> 
+  
+
+
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container rounded-2xl rounded-br-[75px] flex flex-col bg-white p-4  mt-11 mx-auto w-fit lg:w-[35%]">
+
+      <div class="inputFields flex flex-row gap-4 mb-8">
+        <div class="day flex flex-col w-16 gap-1">
+          <label for="Day" class="text-gray-400 font-bold text-xs">DAY</label>
+          <input id="Day" type="text" placeholder="MM" class="border-2 border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+        </div>
+  
+        <div class="month flex flex-col  w-16 gap-1">
+          <label for="Month" class="text-gray-400 font-bold text-xs">MONTH</label>
+          <input id="Month" type="text" placeholder="DD" class="border-2 border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+        </div>
+  
+        <div class="year flex flex-col  w-16 gap-1">
+          <label for="Year" class="text-gray-400 font-bold text-xs">YEAR</label>
+          <input id="Year" placeholder="YYYY" type="text" class="border-2 border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+        </div>
+      </div>
+
+      <div class="submit w-full h-0.5 bg-gray-100 mb-8 relative">
+        <button class="w-10 h-10 rounded-full bg-[#854dff] absolute left-1/2 top-0 -translate-y-1/2  -translate-x-1/2 lg:left-full lg:-translate-x-full">
+          <i class="fa-solid fa-arrow-down text-white text-xl "></i>
+        </button>
+      </div>  
+
+
+
+      <div class="container flex flex-col gap-1">
+
+        <div class="yearResult  flex gap-4 text-5xl font-bold">
+          <span class="text-[#854dff]">--</span>years
+        </div>
+
+        <div class="monthResult  flex gap-4 text-4xl font-bold">
+          <span class="text-[#854dff]">--</span>months
+        </div>
+
+        <div class="dayResult flex gap-4 text-4xl font-bold">
+          <span class="text-[#854dff]">--</span>days
+        </div>
+        
+      </div>
+
+    </div>
+
+
+
+    <script src="../main.js"></script>
+    <script src="../package-lock.json"></script>
+    <script src="../package.json"></script>
+    <script src="../tailwind.config.js"></script>
+    <div class="attribution absolute top-full -translate-y-full text-lg">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">mohamed aboelfetoh</a>.
+    </div>
+
+  </body>
+</html>
