@@ -15,13 +15,24 @@ submit.onclick = function(){
     let monthValidate = false;
     let yearValidate = false;
 
+    let dayResonError=""
+    let monthResonError=""
+    let yearResonError=""
+
+
     let month31 = [1,3,5,7,8,10,12];
     let month30 = [4,6,9,11];
 
-    //validate days that has 31 days
-    month31.includes(+month.value) && (day.value > 0 && day.value <= 31)? dayValidate = true : ""
-    //validate days that has 30 days
-    month30.includes(+month.value) && (day.value > 0 && day.value <= 30)? dayValidate = true : ""
+
+    if(day.value != ""){
+        //validate days that has 31 days
+        month31.includes(+month.value) && (day.value > 0 && day.value <= 31)? dayValidate = true : dayResonError = "Must be a valid day"
+        //validate days that has 30 days
+        month30.includes(+month.value) && (day.value > 0 && day.value <= 30)? dayValidate = true : dayResonError = "Must be a valid day"
+
+    }else if(day.value == ""){
+        dayResonError = "The Field Is required"
+    }
 
     //validate days in febraury
     if (+month.value === 2) {
@@ -34,11 +45,24 @@ submit.onclick = function(){
     }
 
     //validate month
-    month.value > 0 && month.value <= 12 ? monthValidate = true : ""
+    if(month.value !=""){
+        month.value > 0 && month.value <= 12 ? monthValidate = true : monthResonError = "Must be a valid month"
+    }else if(month.value == ""){
+        monthResonError = "The Field Is required"
+    }
+
     //validate year
-    year.value <= new Date().getFullYear() && year.value >0? yearValidate = true : ""
+    if(year.value !=""){
+        year.value <= new Date().getFullYear() && year.value >0? yearValidate = true : yearResonError = "Must be a in the past"
+    }else if(year.value == ""){
+        yearResonError = "The Field Is required"
+    }
 
     if(dayValidate  && monthValidate  && yearValidate ){
+
+        document.getElementsByClassName("dError")[0].innerHTML=""
+        document.getElementsByClassName("mError")[0].innerHTML=""
+        document.getElementsByClassName("yError")[0].innerHTML=""
 
         let birthDay = new Date(`${year.value} ${month.value} ${day.value}`);
         birthDay.setHours(0,0,0)
@@ -48,8 +72,6 @@ submit.onclick = function(){
 
         let daysRes  = Math.floor(result / 1000 / 60 / 60 / 24); 
         let yearRes  = daysRes / 365.25;
-
-
 
         let remainMonths = (yearRes - Math.floor(yearRes)) * 12
         let remainDays = (remainMonths - Math.floor(remainMonths)) * 30
@@ -82,6 +104,28 @@ submit.onclick = function(){
             dayResult.innerHTML = D;
             D++
         },20)
+
+}else{
+
+    let dError = document.getElementsByClassName("dError")[0]
+    let mError = document.getElementsByClassName("mError")[0]
+    let yError = document.getElementsByClassName("yError")[0]
+
+    dError.innerHTML=""
+    mError.innerHTML=""
+    yError.innerHTML=""
+
+    dError.previousElementSibling.classList.replace("border-[#f3f4f6]" , "border-red-500")
+    mError.previousElementSibling.classList.replace("border-[#f3f4f6]" , "border-red-500")
+    yError.previousElementSibling.classList.replace("border-[#f3f4f6]" , "border-red-500")
+
+    yError.parentElement.firstElementChild.classList.replace("text-gray-400" , "text-red-500")
+    dError.parentElement.firstElementChild.classList.replace("text-gray-400" , "text-red-500")
+    mError.parentElement.firstElementChild.classList.replace("text-gray-400" , "text-red-500")
+
+    dError.innerHTML= dayResonError
+    mError.innerHTML= monthResonError
+    yError.innerHTML= yearResonError
 
 }
 

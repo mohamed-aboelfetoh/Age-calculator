@@ -34,22 +34,27 @@
   <body class="bg-gray-100">
     <div class="container rounded-2xl rounded-br-[75px] flex flex-col bg-white p-4  mt-11 mx-auto w-fit lg:w-[35%]">
 
-      <div class="inputFields flex flex-row gap-4 mb-8">
+      <div class="inputFields flex flex-row gap-4 mb-8 flex-wrap">
         <div class="day flex flex-col w-16 gap-1">
           <label for="Day" class="text-gray-400 font-bold text-xs">DAY</label>
-          <input id="Day" type="text" placeholder="MM" class="border-2 border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+          <input id="Day" type="text" placeholder="MM" class="border-[1px] border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+          <div class="dError text-xs text-red-500"></div>
         </div>
   
         <div class="month flex flex-col  w-16 gap-1">
           <label for="Month" class="text-gray-400 font-bold text-xs">MONTH</label>
-          <input id="Month" type="text" placeholder="DD" class="border-2 border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+          <input id="Month" type="text" placeholder="DD" class="border-[1px] border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+          <div class="mError text-xs text-red-500"></div>
         </div>
   
         <div class="year flex flex-col  w-16 gap-1">
           <label for="Year" class="text-gray-400 font-bold text-xs">YEAR</label>
-          <input id="Year" placeholder="YYYY" type="text" class="border-2 border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+          <input id="Year" placeholder="YYYY" type="text" class="border-[1px] border-[#f3f4f6] outline-none focus:border-[#854dff] focus:outline-none rounded-md p-1"/>
+          <div class="yError text-xs text-red-500"></div>
         </div>
+
       </div>
+
 
       <div class="submit w-full h-0.5 bg-gray-100 mb-8 relative">
         <button class="w-10 h-10 rounded-full bg-[#854dff] absolute left-1/2 top-0 -translate-y-1/2  -translate-x-1/2 lg:left-full lg:-translate-x-full">
