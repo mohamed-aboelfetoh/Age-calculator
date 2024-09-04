@@ -47,7 +47,10 @@ submit.onclick = function(){
         let result = now - birthDay;
 
         let daysRes  = Math.floor(result / 1000 / 60 / 60 / 24); 
-        let yearRes  = daysRes / 365;
+        let yearRes  = daysRes / 365.25;
+
+
+
         let remainMonths = (yearRes - Math.floor(yearRes)) * 12
         let remainDays = (remainMonths - Math.floor(remainMonths)) * 30
         
