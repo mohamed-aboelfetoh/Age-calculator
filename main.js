@@ -6,6 +6,10 @@ let dayResult = document.querySelector(".dayResult > span");
 let monthResult = document.querySelector(".monthResult > span");
 let yearResult = document.querySelector(".yearResult > span");
 
+let dError = document.getElementsByClassName("dError")[0]
+let mError = document.getElementsByClassName("mError")[0]
+let yError = document.getElementsByClassName("yError")[0]
+
 let submit = document.getElementsByClassName("submit")[0];
 
 
@@ -60,9 +64,17 @@ submit.onclick = function(){
 
     if(dayValidate  && monthValidate  && yearValidate ){
 
-        document.getElementsByClassName("dError")[0].innerHTML=""
-        document.getElementsByClassName("mError")[0].innerHTML=""
-        document.getElementsByClassName("yError")[0].innerHTML=""
+        dError.innerHTML=""
+        mError.innerHTML=""
+        yError.innerHTML=""
+
+        dError.previousElementSibling.classList.replace("border-red-500", "border-[#f3f4f6]")
+        mError.previousElementSibling.classList.replace("border-red-500", "border-[#f3f4f6]")
+        yError.previousElementSibling.classList.replace("border-red-500" , "border-[#f3f4f6]")
+    
+        yError.parentElement.firstElementChild.classList.replace("text-red-500" , "text-gray-400" )
+        dError.parentElement.firstElementChild.classList.replace("text-red-500", "text-gray-400" )
+        mError.parentElement.firstElementChild.classList.replace( "text-red-500" , "text-gray-400" )
 
         let birthDay = new Date(`${year.value} ${month.value} ${day.value}`);
         birthDay.setHours(0,0,0)
@@ -106,10 +118,6 @@ submit.onclick = function(){
         },20)
 
 }else{
-
-    let dError = document.getElementsByClassName("dError")[0]
-    let mError = document.getElementsByClassName("mError")[0]
-    let yError = document.getElementsByClassName("yError")[0]
 
     dError.innerHTML=""
     mError.innerHTML=""
